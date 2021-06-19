@@ -191,7 +191,7 @@ def new_member(update, context):
             # Make bot greet admins
             elif new_mem.id == context.bot.id:
                 update.effective_message.reply_text(
-                    "Hey {}, I'm {}! Thank you for adding me to {}"
+                    "Hey {}-kun, I'm {}! Thank you for adding me to {} UwU"
                     " and I hope you doin fine! :D".format(
                         user.first_name, context.bot.first_name, chat_name
                     ),
