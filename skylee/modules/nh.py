@@ -75,5 +75,5 @@ def nhentai_data(noombers):
     )
     return title, tags, artist, total_pages, post['url'], links[0]
   
-  NHENTAI_HANDLER = nhentai, events.NewMessage(pattern="^[!/]nhentai$")
-  client.add_event_handler(*NHENTAI_HANDLER)
+NHENTAI_HANDLER = nhentai, events.NewMessage(pattern="^[!/]nhentai$")
+client.add_event_handler(*NHENTAI_HANDLER)
