@@ -378,6 +378,28 @@ def manga(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
 
+
+async def nhentai(_, message):
+    if len(message.command) < 2:
+        await message.delete()
+        return
+    query = message.text.split(None, 1)[1]
+    title, tags, artist, total_pages, post_url, cover_image = nhentai_data(
+        query)
+    await message.reply_text(
+        f"<code>{title}</code>\n\n<b>Tags:</b>\n{tags}\n<b>Artists:</b>\n{artist}\n<b>Pages:</b>\n{total_pages}",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "Read Here",
+                        url=post_url
+                    )
+                ]
+            ]
+        )
+    )
+
 def nhentai_data(noombers):
     url = f"https://nhentai.net/api/gallery/{noombers}"
     res = requests.get(url).json()
@@ -417,29 +439,7 @@ def nhentai_data(noombers):
         author_name="@Chizurumanagementbot",
         author_url="https://t.me/Chizurumanagementbot"
     )
-return title, tags, artist, total_pages, post['url'], links[0]
-
-async def nhentai(_, message):
-    if len(message.command) < 2:
-        await message.delete()
-        return
-    query = message.text.split(None, 1)[1]
-    title, tags, artist, total_pages, post_url, cover_image = nhentai_data(
-        query)
-    await message.reply_text(
-        f"<code>{title}</code>\n\n<b>Tags:</b>\n{tags}\n<b>Artists:</b>\n{artist}\n<b>Pages:</b>\n{total_pages}",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "Read Here",
-                        url=post_url
-                    )
-                ]
-            ]
-        )
-    )
-
+    return title, tags, artist, total_pages, post['url'], links[0]
 
 AIRING_HANDLER = CommandHandler("airing", airing)
 ANIME_HANDLER = CommandHandler("anime", anime)
