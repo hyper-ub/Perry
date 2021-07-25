@@ -378,7 +378,6 @@ def manga(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
 
-@client.on_message(filters.command("nhentai"))
 async def nhentai(_, message):
     if len(message.command) < 2:
         await message.delete()
@@ -445,11 +444,14 @@ AIRING_HANDLER = CommandHandler("airing", airing)
 ANIME_HANDLER = CommandHandler("anime", anime)
 CHARACTER_HANDLER = CommandHandler("character", character)
 MANGA_HANDLER = CommandHandler("manga", manga)
+NHENTAI_HANDLER = nhentai, events.NewMessage(pattern="^[!/]nhentai$")
 
 dispatcher.add_handler(AIRING_HANDLER)
 dispatcher.add_handler(ANIME_HANDLER)
 dispatcher.add_handler(MANGA_HANDLER)
 dispatcher.add_handler(CHARACTER_HANDLER)
+
+client.add_event_handler(*NHENTAI_HANDLER)
 
 
 __help__ = """
