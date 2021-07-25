@@ -153,7 +153,7 @@ api_hash = TELETHON_HASH
 client = TelegramClient("skylee", api_id, api_hash)
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-
+telethn = TelegramClient("skylee", API_ID, API_HASH)
 dispatcher = updater.dispatcher
 
 SUDO_USERS = list(SUDO_USERS)
