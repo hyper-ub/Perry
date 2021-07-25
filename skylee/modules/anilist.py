@@ -22,7 +22,7 @@ from telegram.ext.dispatcher import run_async
 from telegram.ext import CommandHandler, CallbackContext
 from telegram import Update, Bot
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
-from skylee import dispatcher, telethn
+from skylee import dispatcher, client
 import requests
 import math
 import time
@@ -453,7 +453,7 @@ dispatcher.add_handler(MANGA_HANDLER)
 dispatcher.add_handler(NHENTAI_HANDLER)
 dispatcher.add_handler(CHARACTER_HANDLER)
 
-telethn.add_event_handler(*NHENTAI_HANDLER)
+client.add_event_handler(*NHENTAI_HANDLER)
 
 __help__ = """
 Get information about anime, manga or characters from [AniList](anilist.co) and [MyAnimeList](myanimelist.net).
