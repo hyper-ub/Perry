@@ -417,7 +417,7 @@ def nhentai_data(noombers):
         author_name="@Chizurumanagementbot",
         author_url="https://t.me/Chizurumanagementbot"
     )
-  return title, tags, artist, total_pages, post['url'], links[0]
+return title, tags, artist, total_pages, post['url'], links[0]
 
 async def nhentai(_, message):
     if len(message.command) < 2:
