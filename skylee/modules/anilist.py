@@ -450,7 +450,6 @@ NHENTAI_HANDLER = nhentai, events.NewMessage(pattern="^[!/]nhentai$")
 dispatcher.add_handler(AIRING_HANDLER)
 dispatcher.add_handler(ANIME_HANDLER)
 dispatcher.add_handler(MANGA_HANDLER)
-dispatcher.add_handler(NHENTAI_HANDLER)
 dispatcher.add_handler(CHARACTER_HANDLER)
 
 client.add_event_handler(*NHENTAI_HANDLER)
